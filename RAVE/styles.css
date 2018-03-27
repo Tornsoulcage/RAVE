@@ -1,0 +1,280 @@
+/*
+	RAVE Style Sheet
+	Filename: styles.css
+	
+	Authors: Group 8
+		Nathan Chan, Jeffrey Holst, Cristian Johnson, Joseph Scott
+	Date: 12/01/17
+*/
+
+/*w3schools autocomplete styles */
+
+.autocomplete-items {
+  position: absolute;
+  border: 1px solid #d4d4d4;
+  border-bottom: none;
+  border-top: none;
+  z-index: 99;
+  /*position the autocomplete items to be the same width as the container:*/
+  top: 100%;
+  left: 10em;
+  width: 50%;
+}
+.autocomplete-items div {
+  padding: 10px;
+  cursor: pointer;
+  background-color: #fff; 
+  border-bottom: 1px solid #d4d4d4; 
+}
+.autocomplete-items div:hover {
+  /*when hovering an item:*/
+  background-color: #e9e9e9; 
+}
+.autocomplete-active {
+  /*when navigating through the items using the arrow keys:*/
+  background-color: DodgerBlue !important; 
+  color: #ffffff; 
+}
+
+/* Reset Styles */
+html {
+	font-size: 14px;
+}
+a, article, body, div, footer, header, h1, h2, h3, img, li, nav, p, ul, fieldset, form, input, label, legend, select {
+	border: 0;
+	padding: 0;
+	margin: 0;
+}
+img {
+	max-width: 100%;
+	height: auto;
+	width: auto;
+}
+
+/*Body and Container */
+body {
+	background: gray;
+	font-family: Arial, Hevetica, sans-serif;
+}
+
+.container {
+	margin: 0 auto;
+	background: gray;
+	border: 2px solid black;
+}
+
+p {
+	font-size: 1.2em;
+}
+
+/*skip navigation link */
+p.skipnavigation a {
+	position: absolute;
+	left: -10000px;
+}
+
+p.skipnavigation a:focus {
+	left: 1em;
+	top: 1em;
+	color: black;
+	background: ivory;
+	z-index: 2;
+}
+
+/* Header Section */
+header {
+	padding: 1em 2% 0.5em;
+	text-align: center;
+	background-color: gray;
+	overflow: auto;
+}
+
+h1 {
+	font-size: 2.4em;
+	line-height: 1.4em;
+	font-family: Arial, Helvetica, sans-serif;
+	font-weight: bold;
+	margin: auto;
+}
+
+/* Main Content */
+article {
+	border-top: 2px solid black;
+	background-color: ivory;
+}
+
+article h2 {
+	margin: 0 0 0.4em;
+	font-family: Georgia, "Times New Roman", Times, serif;
+	font-size: 1.6em;
+}
+
+article p {
+	text-align: center;
+	border: 1px solid black;
+	padding: 0%;
+	margin: 0;
+}
+
+/* Fieldset Styles */
+fieldset {
+	border: 2px solid black;
+	padding: 2%;
+	margin-bottom: .8em;
+}
+
+legend {
+	font-size: 1.4em;
+	font-weight: bold;
+	font-family: Georgia, "Times New Roman", Times, serif;
+}
+
+.confirmButton {
+	border: none;
+	text-align: center;
+}
+
+/* Field Styles */
+input, button, select {
+	border: 1px solid #777;
+	padding: 0.2em;
+	font-size: 1em;
+}
+
+.databaseForms input, .databaseForms select {
+	position:absolute;
+	left: 10em;
+	width: 50%;
+}
+
+.databaseForms button {
+	display: block;
+	margin: auto;
+}
+
+.databaseForms textarea, #dbAlerts {
+	position: absolute;
+	left: 10em;
+	overflow: hidden;
+	resize: none;
+}
+
+.confirmButton {
+	border: 1px solid black;
+	font-size: 1.5em;
+	font-weight: bold;
+	background-color: ivory;
+	border-radius: 0.5em;
+	box-sizing: border-box;
+}
+
+.placeRight {
+	float: right;
+}
+
+.placeLeft {
+	float: left;
+}
+
+.placeCenter {
+	margin: auto;
+	display: block;
+}
+
+.formcol {
+	background-color: ivory;
+}
+
+.noPadding {
+	padding-right: 0 !important;
+	padding-left: 0 !important;
+}
+
+/* Label Styles */
+label {
+	font-size: 1.2em;
+}
+
+.databaseForms label {
+	display: block;
+	position: relative;
+	margin: 1em;
+	white-space: normal;
+}
+
+/* Table Section */
+table {
+	width: 100%;
+	margin: 0 auto;
+	border-collapse: collapse;
+}
+
+th, td {
+	border: 1px solid black;
+	padding: 0.5em;
+}
+
+th {
+	background-color: ivory;
+}
+
+td:empty{
+	visibility: hidden;
+}
+
+#maintenanceTable td:empty{
+	visibility: visible;
+}
+
+#maintenanceTable td, #maintenanceTable th,
+#vehicleAlerts td, #vehicleAlerts th {
+	text-align: center;
+}
+
+.overMileage {
+	background-color: red;
+}
+
+.appointments {
+	background-color: snow;
+}
+
+/* Footer Section */
+footer {
+	padding: 0.5em;
+	clear: both;
+	color: white;
+	background-color: black;
+	text-align: right;
+	font-size: .75em;
+}
+
+/* Print Styles */
+@media print {
+	header {
+		display: none;
+	}
+	footer {
+		display: none;
+	}
+	article {
+		position: static;
+		margin: 0 auto;
+	}
+	body, .container {
+		color: #000;
+		background: #fff;
+	}
+	body {
+		max-width: 100%;
+	}
+	nav {
+		display: none;
+	}
+	img {
+		display: none;
+	}
+}
+@page {
+	margin: 0.75in;
+}
