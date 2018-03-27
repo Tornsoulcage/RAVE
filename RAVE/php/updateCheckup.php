@@ -20,7 +20,15 @@ if (! $conn->query($sql)) {
     $error = $conn->error;
     echo $error;
 } else {
-    echo "Success";
+    $sql = "UPDATE VEHICLE
+            SET VEHICLE_MILEAGE = '$MILEAGE'
+            WHERE VEHICLE_ID = '$VEHICLE_ID'";
+    if(!$conn -> query($sql)){
+        $error = $conn->error;
+        echo $error;
+    } else {
+        echo "Success";
+    }
 }
 
 // Closing the connection

@@ -41,11 +41,18 @@ if (! $conn->query($sql)) {
             // Three - The individual attriubutes for each vehicle we got
             if (mysqli_num_rows($res) > 0) {
                 $res_table = mysqli_fetch_all($res, MYSQLI_NUM);
-                
+
                 // For every vehicle we pull the latest maintenance record associated with it
                 for ($j = 0; $j < count($res_table); $j ++) {
                     $VEHICLE_ID = $res_table[$j][0];
                     $CURRENT_MILEAGE = $res_table[$j][6];
+                    
+                    //This is to figure our what side of our Reccommend mileage we are on and figures out our targets based on that
+                    $modRecc = round($CURRENT_MILEAGE/$RECC_MILEAGE);
+                    $target = $modRecc * $RECC_MILEAGE;
+                    
+                    $upper = 1.05 * $target;
+                    $lower = .95 * $target;
                     
                     $sql = "SELECT VEHICLE_MILEAGE 
                                 FROM MAINTENANCE 
@@ -69,15 +76,19 @@ if (! $conn->query($sql)) {
                             // If the record mileage is in the range then we assume that the reccommended maintenance was done
                             // So if the mileage is not in our range we push the vehicle into our content table
                             if (! ($MAIN_MILEAGE <= $upper && $MAIN_MILEAGE >= $lower)) {
-                                // If the vehicle's mileage is above the recc mileage than we flag it to be restyled
-                                if ($CURRENT_MILEAGE >= $RECC_MILEAGE) {
-                                    array_push($vehicle, $res_table[$j], $RECC_DESC, true);
+                                // If the vehicle's mileage is above the target mileage than we flag it to be restyled
+                                if ($CURRENT_MILEAGE >= $target) {
+                                    array_push($vehicle, $res_table[$j], $target, true);
                                     array_push($content, $vehicle);
                                 } else {
-                                    array_push($vehicle, $res_table[$j], $RECC_DESC, false);
+                                    array_push($vehicle, $res_table[$j], $target, false);
                                     array_push($content, $vehicle);
                                 }
                             }
+                        //If the vehicle has no maintenance records then we assume the reccommended maintenance has not been done
+                        } else {
+                            array_push($vehicle, $res_table[$j], $target, true);
+                            array_push($content, $vehicle);
                         }
                     }
                 }

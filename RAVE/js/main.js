@@ -653,8 +653,6 @@ function autocompleteScheduleVehicleId(id){
 							autocomplete(document.getElementById(id), idArray);
 						}
 					}
-				} else {
-					alert("Query returned an empty table.");
 				}
 			} else {
 				alert("There was a problem with the request.");
@@ -718,8 +716,6 @@ function autocompleteMaintenanceVehicleId(id){
 							autocomplete(document.getElementById(id), idArray);
 						}
 					}
-				} else {
-					alert("Query returned an empty table");
 				}
 			} else {
 				alert("There was a problem with the request.");
@@ -768,8 +764,6 @@ function autocompleteVehicleId(id){
 							autocomplete(document.getElementById(id), idArray);
 						}
 					}
-				} else {
-					alert("Query returned an empty table");
 				}
 			} else {
 				alert("There was a problem with the request.");
@@ -848,8 +842,6 @@ function autocompleteLaborCodes(formSet){
 							}
 						}
 					}
-				} else {
-					alert("Query returned an empty table");
 				}
 			} else {
 				alert("There was a problem with the request.");
@@ -1763,8 +1755,6 @@ function selectCheckupDropDown(){
 							document.getElementById("editCurrentGasPriceInput").value = jsonarray[0][3];
 							document.getElementById("editCurrentCommentsInput").value = jsonarray[0][4];
 						}
-					} else {
-						alert("Query returned an empty table.");
 					}
 				} else {
 					alert("There was a problem with the request.");
@@ -2211,8 +2201,6 @@ function selectMaintenanceDropDown(){
 							document.getElementById("editMaintenancePartsCostInput").value = jsonarray[0][8];
 							document.getElementById("editMaintenanceLaborCostInput").value = jsonarray[0][9];
 						}
-					} else {
-						alert("Query returned an empty table.");
 					}
 				} else {
 					alert("There was a problem with the request.");
@@ -2882,8 +2870,6 @@ function selectAppointmentDropDown(){
 							
 							document.getElementById("editScheduleTimeRequired").value = appLength;
 						}
-					} else {
-						alert("Query returned an empty table.");
 					}
 				} else {
 					alert("There was a problem with the request.");
