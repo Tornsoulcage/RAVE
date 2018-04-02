@@ -108,6 +108,7 @@ document.addEventListener("click", function (e) {
 
 //Sorts the vehicle alerts table
 function sortTable() {
+	//asdfjlaksdhflkjahdsf
 	  var table, rows, switching, i, x, y, shouldSwitch;
 	  table = document.getElementById("vehicleAlerts");
 	  switching = true;
