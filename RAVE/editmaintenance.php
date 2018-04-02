@@ -9,7 +9,7 @@
 				Nathan Chan, Jeffrey Holst, Cristian Johnson, Joseph Scott
 			Date: 03/27/18
 		-->
-<title>RAVE</title>
+<title>RAVE balls</title>
 <meta charset="utf-8">
 <meta name="viewport" content="width = device-width">
 <link rel="stylesheet" href="styles.css">
