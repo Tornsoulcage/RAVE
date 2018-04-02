@@ -469,6 +469,8 @@ function selectVehicleMileageAlerts(){
 	function display_data(){
 		if(xhr.readyState == 4){
 			if(xhr.status == 200){
+				alert(xhr.responseText);
+
 				var jsonarray = JSON.parse(xhr.responseText);
 				//If our result doesnt contain any elements than we got an empty table
 				if(jsonarray.length != 0){
@@ -542,6 +544,9 @@ function selectVehicleCheckupAlerts(string, overMileage){
 	function display_data(){
 		if(xhr.readyState == 4){
 			if(xhr.status == 200){
+				//Grabbing the table for us to write in
+				var vehicleAlertsTable = document.getElementById("vehicleAlerts");
+				
 				var jsonarray = JSON.parse(xhr.responseText);
 				//If the length is zero than it's an empty table
 				if(jsonarray.length != 0){
@@ -549,9 +554,6 @@ function selectVehicleCheckupAlerts(string, overMileage){
 					if(jsonarray[0][0].length == 1){
 						alert(xhr.responseText);
 					} else {			
-						//Grabbing the table for us to write in
-						var vehicleAlertsTable = document.getElementById("vehicleAlerts");
-
 						//Our result is a three dimensional array
 						//One - Every vehicle that meet the criteria from the query
 						for(var i = 0; i < jsonarray.length; i++){
@@ -576,17 +578,18 @@ function selectVehicleCheckupAlerts(string, overMileage){
 							//Tack this row onto the string for the table
 							string += tableRow;
 						}
-						
-						//Once the string is finish we write the table
-						vehicleAlertsTable.innerHTML = string;
-						
-						//Once we've written the table we can style the elements that need attention
-						for(var i = 0; i < overMileage.length; i++){
-							var element = document.getElementById(overMileage[i]);
-							element.classList.add("overMileage");
-						}
 					}
 				}
+				
+				//Once the string is finish we write the table
+				vehicleAlertsTable.innerHTML = string;
+				
+				//Once we've written the table we can style the elements that need attention
+				for(var i = 0; i < overMileage.length; i++){
+					var element = document.getElementById(overMileage[i]);
+					element.classList.add("overMileage");
+				}
+				
 			} else {
 				alert("There was a problem with the request.");
 			} 

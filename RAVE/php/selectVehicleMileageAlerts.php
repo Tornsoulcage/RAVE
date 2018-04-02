@@ -24,8 +24,12 @@ if (! $conn->query($sql)) {
         $RECC_MILEAGE = $rec_table[$x][0];
         $RECC_DESC = $rec_table[$x][1];
         
+        //Upper and Lower limits for the alerts
+        $upper = 1.05 * $RECC_MILEAGE;
+        $lower = .95 * $RECC_MILEAGE;
+        
         // Query to select all vehicles whose mileage falls within these bounds
-        $sql = "SELECT * FROM `VEHICLE` WHERE MOD((VEHICLE_MILEAGE/'$RECC_MILEAGE'), 1) >= .95 OR MOD((VEHICLE_MILEAGE/'$RECC_MILEAGE'), 1) <= .05";
+        $sql = "SELECT * FROM `VEHICLE` WHERE MOD(VEHICLE_MILEAGE,'$RECC_MILEAGE') <= $upper AND MOD(VEHICLE_MILEAGE, '$RECC_MILEAGE') >= $lower OR VEHICLE_MILEAGE = '$RECC_MILEAGE'";
         
         // Sending the query and catching any errors
         if (! $conn->query($sql)) {
@@ -47,13 +51,6 @@ if (! $conn->query($sql)) {
                     $VEHICLE_ID = $res_table[$j][0];
                     $CURRENT_MILEAGE = $res_table[$j][6];
                     
-                    //This is to figure our what side of our Reccommend mileage we are on and figures out our targets based on that
-                    $modRecc = round($CURRENT_MILEAGE/$RECC_MILEAGE);
-                    $target = $modRecc * $RECC_MILEAGE;
-                    
-                    $upper = 1.05 * $target;
-                    $lower = .95 * $target;
-                    
                     $sql = "SELECT VEHICLE_MILEAGE 
                                 FROM MAINTENANCE 
                                 WHERE VEHICLE_ID = '$VEHICLE_ID' 
@@ -65,29 +62,31 @@ if (! $conn->query($sql)) {
                         echo $error;
                     } else {
                         $res = $conn->query($sql);
+                        // Array to hold the vehicle information and some extra info
+                        $vehicle = array();
                         
                         if (mysqli_num_rows($res) > 0) {
                             $main_res = mysqli_fetch_array($res);
                             $MAIN_MILEAGE = $main_res[0];
                             
-                            // Array to hold the vehicle information and some extra info
-                            $vehicle = array();
+                            
                             
                             // If the record mileage is in the range then we assume that the reccommended maintenance was done
                             // So if the mileage is not in our range we push the vehicle into our content table
-                            if (! ($MAIN_MILEAGE <= $upper && $MAIN_MILEAGE >= $lower)) {
+                            if (!($MAIN_MILEAGE <= $upper && $MAIN_MILEAGE >= $lower)) {
                                 // If the vehicle's mileage is above the target mileage than we flag it to be restyled
-                                if ($CURRENT_MILEAGE >= $target) {
-                                    array_push($vehicle, $res_table[$j], $target, true);
+                                if ($CURRENT_MILEAGE >= $RECC_MILEAGE) {
+                                    array_push($vehicle, $res_table[$j], $RECC_MILEAGE, true);
                                     array_push($content, $vehicle);
                                 } else {
-                                    array_push($vehicle, $res_table[$j], $target, false);
+                                    array_push($vehicle, $res_table[$j], $RECC_MILEAGE, false);
                                     array_push($content, $vehicle);
                                 }
                             }
+                            
                         //If the vehicle has no maintenance records then we assume the reccommended maintenance has not been done
                         } else {
-                            array_push($vehicle, $res_table[$j], $target, true);
+                            array_push($vehicle, $res_table[$j], $RECC_MILEAGE, true);
                             array_push($content, $vehicle);
                         }
                     }
