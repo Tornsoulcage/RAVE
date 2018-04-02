@@ -15,6 +15,7 @@ $sql = "INSERT INTO DEPARTMENT (DEPARTMENT_ID, DEPARTMENT_NAME)
 if (! $conn->query($sql)) {
     $error = $conn->error;
     echo $error;
+    //push this
 } else {
     echo "Success";
 }
