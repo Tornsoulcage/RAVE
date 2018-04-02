@@ -606,7 +606,7 @@ function selectVehicleCheckupAlerts(string, overMileage){
 							}
 							
 							//Once we finish the vehicle we add a description cell and end the row
-							tableRow += "<td>Weekly Checkup</td>";
+							tableRow += "<td>NEEDS A WEEKLY CHECKUP</td>";
 							tableRow += "</tr>";
 							
 							//Tack this row onto the string for the table

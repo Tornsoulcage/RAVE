@@ -66,27 +66,26 @@ if (! $conn->query($sql)) {
                         $vehicle = array();
                         
                         if (mysqli_num_rows($res) > 0) {
+                            //Pulling out the mileage for the most recent maintenance appointment
                             $main_res = mysqli_fetch_array($res);
                             $MAIN_MILEAGE = $main_res[0];
-                            
-                            
                             
                             // If the record mileage is in the range then we assume that the reccommended maintenance was done
                             // So if the mileage is not in our range we push the vehicle into our content table
                             if (!($MAIN_MILEAGE <= $upper && $MAIN_MILEAGE >= $lower)) {
                                 // If the vehicle's mileage is above the target mileage than we flag it to be restyled
                                 if ($CURRENT_MILEAGE >= $RECC_MILEAGE) {
-                                    array_push($vehicle, $res_table[$j], $RECC_MILEAGE, true);
+                                    array_push($vehicle, $res_table[$j], $RECC_DESC, true);
                                     array_push($content, $vehicle);
                                 } else {
-                                    array_push($vehicle, $res_table[$j], $RECC_MILEAGE, false);
+                                    array_push($vehicle, $res_table[$j], $RECC_DESC, false);
                                     array_push($content, $vehicle);
                                 }
                             }
                             
                         //If the vehicle has no maintenance records then we assume the reccommended maintenance has not been done
                         } else {
-                            array_push($vehicle, $res_table[$j], $RECC_MILEAGE, true);
+                            array_push($vehicle, $res_table[$j], $RECC_DESC, true);
                             array_push($content, $vehicle);
                         }
                     }
