@@ -108,7 +108,6 @@ document.addEventListener("click", function (e) {
 
 //Sorts the vehicle alerts table
 function sortTable() {
-	//asdfjlaksdhflkjahdsf
 	  var table, rows, switching, i, x, y, shouldSwitch;
 	  table = document.getElementById("vehicleAlerts");
 	  switching = true;
@@ -305,7 +304,6 @@ function setUserRights(page){
 				}
 				if(page == 'index'){
 					selectVehicleMileageAlerts();
-					sortTable();
 				}
 				if(page == 'viewfleet'){
 					autocompleteVehicleId("editVehicleIDInput");
@@ -626,6 +624,8 @@ function selectVehicleCheckupAlerts(string, overMileage){
 					element.classList.add("overMileage");
 				}
 				
+				sortTable();
+
 			} else {
 				alert("There was a problem with the request.");
 			} 
