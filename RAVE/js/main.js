@@ -2316,6 +2316,8 @@ function selectMaintenanceTable(vehicleID){
 							}
 							mainTable.innerHTML = string;
 						}
+					} else {
+						mainTable.innerHTML = "";
 					}
 				} else {
 					alert("There was a problem with the request.");
@@ -2393,6 +2395,8 @@ function selectMaintenanceTableRange(vehicleID, start, end){
 							}
 							mainTable.innerHTML = string;
 						}
+					} else {
+						mainTable.innerHTML = "";
 					}
 				} else {
 					alert("There was a problem with the request.");
@@ -2471,6 +2475,8 @@ function selectMaintenanceTableClass(licenseClass, start, end){
 							}
 							mainTable.innerHTML = string;
 						}
+					} else {
+						mainTable.innerHTML = "";
 					}
 				} else {
 					alert("There was a problem with the request.");
