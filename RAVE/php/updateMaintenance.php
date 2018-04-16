@@ -30,8 +30,9 @@ $sql = "UPDATE MAINTENANCE
 
 // Sending the query to the database and catching any errors to display
 if (! $conn->query($sql)) {
-    $error = $conn->error;
+    $error = mysqli_error($conn);
     echo $error;
+	echo "Test";
 } else {
     // Changing the mileage for the vehicle in question
     $sql = "UPDATE VEHICLE

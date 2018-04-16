@@ -26,7 +26,7 @@ $sql = "UPDATE vehicle
 
 // Sending the query to the database and catching any errors to display
 if (! $conn->query($sql)) {
-    $error = $conn->error;
+    $error = $conn->errorno;
     echo $error;
 } else {
     echo "Success";
