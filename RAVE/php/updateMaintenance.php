@@ -30,7 +30,7 @@ $sql = "UPDATE MAINTENANCE
 
 // Sending the query to the database and catching any errors to display
 if (! $conn->query($sql)) {
-    $error = mysqli_error($conn);
+    $error = mysqli_errno($conn);
     echo $error;
 	echo "Test";
 } else {

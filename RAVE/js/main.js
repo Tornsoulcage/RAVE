@@ -291,6 +291,8 @@ function setUserRights(page){
 					setCurrentDate("removeDateInput");
 					selectAllMechanics("addMaintenanceMechanicInput");
 					selectAllMechanics("editMaintenanceMechanicInput");
+					selectAllDepartments("addDepartmentNameInput");
+					selectAllDepartments("editDepartmentNameInput");
 				}
 				if(page == 'editschedule'){
 					autocompleteScheduleVehicleId("vehicle");
