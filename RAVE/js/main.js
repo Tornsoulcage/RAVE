@@ -107,9 +107,9 @@ document.addEventListener("click", function (e) {
 }
 
 //Sorts the vehicle alerts table
-function sortTable() {
+function sortTable(tableID, indexSort) {
 	  var table, rows, switching, i, x, y, shouldSwitch;
-	  table = document.getElementById("vehicleAlerts");
+	  table = document.getElementById(tableID);
 	  switching = true;
 	  /* Make a loop that will continue until
 	  no switching has been done: */
@@ -124,8 +124,8 @@ function sortTable() {
 	      shouldSwitch = false;
 	      /* Get the two elements you want to compare,
 	      one from current row and one from the next: */
-	      x = rows[i].getElementsByTagName("TD")[0];
-	      y = rows[i + 1].getElementsByTagName("TD")[0];
+	      x = rows[i].getElementsByTagName("TD")[indexSort];
+	      y = rows[i + 1].getElementsByTagName("TD")[indexSort];
 	      // Check if the two rows should switch place:
 	      if (x.innerHTML > y.innerHTML) {
 	        // I so, mark as a switch and break the loop:
@@ -631,7 +631,7 @@ function selectVehicleCheckupAlerts(string, overMileage){
 					element.classList.add("overMileage");
 				}
 				
-				sortTable();
+				sortTable("vehicleAlerts",0);
 
 			} else {
 				alert("There was a problem with the request.");
@@ -1693,7 +1693,7 @@ function selectFleet(){
 					
 					//If the result is null than it's an empty table
 					if(jsonarray[0] != null){
-						if(jsonarray.length == 1){
+						if(jsonarray[0].length == 1){
 							//If the array's length is one than it is an error string so we display
 							alert(xhr.responseText);
 						} else {	
@@ -1725,6 +1725,7 @@ function selectFleet(){
 							}
 							
 							table.innerHTML = string;
+							sortTable("fleetInfoTable",1);
 						}	
 					} 
 				} else {
