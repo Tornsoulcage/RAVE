@@ -1615,6 +1615,7 @@ function selectVehicle(){
 	
 		//Opening the request
 		xhr.open("GET", "php/selectVehicle.php?q=" + vid, true);
+		
 	
 		//Set the function to call when the readystate changes
 		xhr.onreadystatechange = display_data;
@@ -1675,6 +1676,8 @@ function selectFleet(){
 	
 		//Opening the request
 		xhr.open("POST", "php/selectFleet.php", true);
+		xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+
 	
 		//Set the function to call when the readystate changes
 		xhr.onreadystatechange = display_data;
@@ -1685,6 +1688,7 @@ function selectFleet(){
 					//The PHP call returns an array so we catch it here
 					//Then break set the appropriate form elements to their new values based on the array
 					//Array values are in the order they appear in the database
+					alert(xhr.responseText);
 					var jsonarray = JSON.parse(xhr.responseText);
 					
 					//If the result is null than it's an empty table
@@ -1694,8 +1698,23 @@ function selectFleet(){
 							alert(xhr.responseText);
 						} else {	
 							var table = document.getElementById("fleetInfoTable");
-							var tableRow = "";
 							var string = "";
+							var tableRow = "<tr>" +
+										   "<th>Vehicle's ID</th>" +
+										   "<th>Department</th>" +
+										   "<th>Make</th>" +
+										   "<th>Model</th>" +
+										   "<th>Year</th>" +
+										   "<th>VIN</th>" +
+										   "<th>Mileage</th>" +
+										   "<th>Engine</th>" + 
+										   "<th>Tires</th>" +
+										   "<th>Condition</th>" +
+										   "<th>Required License</th>" +
+										   "</tr>";
+							string += tableRow;
+							
+							tableRow = "";
 							for(var i = 0; i < jsonarray.length; i++){
 								tableRow = "<tr>";
 								for(var j = 0; j < jsonarray[i].length; j++){
