@@ -82,9 +82,8 @@
 								</fieldset>
 								<fieldset class = "databaseForms">
 									<legend>Vehicle Information</legend>
-									<label for = "addDepartmentNameInput">
-										Department's Name
-										<input type = "text" name = "addDepartmentNameInput" id = "addDepartmentNameInput" placeholder = "Department's Name" readonly>
+									<label for="addDepartmentNameInput"> Department's Name <!-- Will be populated by Javascript -->
+										<select disabled id="addDepartmentNameInput"></select>
 									</label>
 									<label for = "addMakeInput">
 										Make
@@ -171,9 +170,8 @@
 								</fieldset>
 								<fieldset class = "databaseForms">
 									<legend>Vehicle's Information</legend>
-									<label for = "editDepartmentNameInput">
-										Department's Name
-										<input type = "text" name = "editDepartmentNameInput" id = "editDepartmentNameInput" placeholder = "Department's Name" readonly>
+									<label for="editDepartmentNameInput"> Department's Name <!-- Will be populated by Javascript -->
+										<select disabled id="editDepartmentNameInput"></select>
 									</label>
 									<label for = "editMakeInput">
 										Make

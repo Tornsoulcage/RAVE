@@ -316,6 +316,7 @@ function setUserRights(page){
 				}
 				if(page == 'viewmaintenance'){
 					autocompleteMaintenanceVehicleId("editVehicleIDInput");	
+					selectAllDepartments("editDepartmentNameInput");
 				}
 				if(page == 'viewschedule'){
 					setCurrentDate("scheduleDateInput");
