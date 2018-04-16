@@ -157,9 +157,8 @@
 							onsubmit="return false">
 							<fieldset class="databaseForms">
 								<legend>Select Department</legend>
-								<label for="departmentNameInput"> Department's Name <input
-									type="text" name="departmentNameInput" id="departmentNameInput"
-									placeholder="Department's Name">
+								<label for="departmentNameInput"> Department's Name <!-- Will be populated by Javascript -->
+									<select id="departmentNameInput"></select>
 								</label>
 								<div class="col-xs-6 formcol placeLeft noPadding">
 									<label for="departmentStartDate"> Start Date <input type="date"

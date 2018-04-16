@@ -274,6 +274,7 @@ function setUserRights(page){
 				if(page == 'analyzecosts'){
 					setPreviousMonthDate();
 					autocompleteVehicleId("editVehicleIDInput");
+					selectAllDepartments("departmentNameInput");
 				}
 				if(page == 'editfleet'){
 					autocompleteVehicleId('vehicle');
@@ -309,6 +310,9 @@ function setUserRights(page){
 				}
 				if(page == 'viewfleet'){
 					autocompleteVehicleId("editVehicleIDInput");
+					selectAllDepartments("editDepartmentNameInput");
+					selectAllDepartments("fleetDepartmentNameInput");
+					
 				}
 				if(page == 'viewmaintenance'){
 					autocompleteMaintenanceVehicleId("editVehicleIDInput");	
@@ -1652,6 +1656,68 @@ function selectVehicle(){
 	}
 }
 
+//Sends a XMLHttp request to the server to use PHP to select all records from the vehicle table
+function selectFleet(){
+	//Grabbing the requested vehicle id
+	var did = document.getElementById("fleetDepartmentNameInput").value;
+	
+	var datastring = "did=" + did;
+	
+	//Making an array for our values to validate
+	var array = new Array();
+	array.push(did);
+	
+	//If the Validation returns true we continue
+	if(validateForm(array)){
+		//Starting the ajax call
+		var xhr;
+		xhr = new XMLHttpRequest();
+	
+		//Opening the request
+		xhr.open("POST", "php/selectFleet.php", true);
+	
+		//Set the function to call when the readystate changes
+		xhr.onreadystatechange = display_data;
+	
+		function display_data(){
+			if(xhr.readyState == 4){
+				if(xhr.status == 200){
+					//The PHP call returns an array so we catch it here
+					//Then break set the appropriate form elements to their new values based on the array
+					//Array values are in the order they appear in the database
+					var jsonarray = JSON.parse(xhr.responseText);
+					
+					//If the result is null than it's an empty table
+					if(jsonarray[0] != null){
+						if(jsonarray.length == 1){
+							//If the array's length is one than it is an error string so we display
+							alert(xhr.responseText);
+						} else {	
+							var table = document.getElementById("fleetInfoTable");
+							var tableRow = "";
+							var string = "";
+							for(var i = 0; i < jsonarray.length; i++){
+								tableRow = "<tr>";
+								for(var j = 0; j < jsonarray[i].length; j++){
+									tableRow += "<td>" + jsonarray[i][j] + "</td>";
+								}
+								tableRow += "</tr>";
+								string += tableRow;
+							}
+							
+							table.innerHTML = string;
+						}	
+					} 
+				} else {
+					alert("There was a problem with the request.");
+				} 
+			}
+		}
+	
+		//Send the request
+		xhr.send(datastring);
+	}
+}
 //Sends a XMLHttp request to the server to use PHP to insert a record to the weekly checkup table
 function insertCheckup(){
 	//Collecting the vehicle id and current information
@@ -2600,6 +2666,9 @@ function selectAllDepartments(id){
 					
 						//Adding all of the information to the element
 						departments.innerHTML = string;
+						if(id = "fleetDepartmentNameInput"){
+							departments.innerHTML += "<option value = '*'>All Departments</option>";
+						}
 					}
 				} 
 			} else {

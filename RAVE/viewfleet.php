@@ -69,75 +69,99 @@
 		</div>
 		<div class="row">
 			<article class="genRights">
-				<h2>View Fleet</h2>
-				<p>Form for selecting and viewing Vehicle Information</p>
-				<form autocomplete="off" id="viewVehicleForm"
-					onsubmit="return false">
-					<fieldset class="databaseForms">
-						<legend>Select Vehicle's ID</legend>
-						<div class="autocomplete">
-							<label for="editVehicleIDInput"> Vehicles ID <input type="text"
-								name="editVehicleIDInput" id="editVehicleIDInput"
-								onblur="selectVehicle()" placeholder="Vehicles ID">
-							</label>
-						</div>
-					</fieldset>
-					<fieldset class="databaseForms">
-						<legend>Vehicle Information</legend>
-						<label for="editDepartmentNameInput"> Department's Name <input
-							type="text" name="editDepartmentNameInput"
-							id="editDepartmentNameInput" placeholder="Department's Name"
-							readonly>
-						</label> <label for="editMakeInput"> Make <input type="text"
-							name="editMakeInput" id="editMakeInput" placeholder="Make"
-							readonly>
-						</label> <label for="editModelInput"> Model <input type="text"
-							name="editModelInput" id="editModelInput" placeholder="Model"
-							readonly>
-						</label> <label for="editYearInput"> Year <input type="number"
-							name="editYearInput" id="editYearInput" placeholder="Year"
-							readonly>
-						</label> <label for="editVINInput"> Vehicles VIN <input
-							type="text" name="editVINInput" id="editVINInput"
-							placeholder="Vehicles VIN" readonly>
-						</label> <label for="editMileageInput"> Mileage <input
-							type="number" name="editMileageInput" id="editMileageInput"
-							placeholder="Mileage" readonly>
-						</label> <label for="editEngineInput"> Engine <input type="text"
-							name="editEngineInput" id="editEngineInput" placeholder="Engine"
-							readonly>
-						</label> <label for="editTiresInput"> Tires <select
-							id="editTiresInput" name="editTiresInput" disabled>
-								<option value="11/32">11/32</option>
-								<option value="10/32">10/32</option>
-								<option value="9/32">9/32</option>
-								<option value="8/32">8/32</option>
-								<option value="7/32">7/32</option>
-								<option value="6/32">6/32</option>
-								<option value="5/32">5/32</option>
-								<option value="4/32">4/32</option>
-								<option value="3/32">3/32</option>
-								<option value="2/32">2/32</option>
-						</select>
-						</label> <label for="editConditionInput"> Condition <select
-							id="editConditionInput" name="editConditionInput" disabled>
-								<option value="POOR">Poor</option>
-								<option value="GOOD">Good</option>
-								<option value="VERY GOOD">Very Good</option>
-								<option value="EXCELLENT">Excellent</option>
-						</select>
-						</label> <label for="editRequiredLicenseInput"> Required License <select
-							id="editRequiredLicenseInput" name="editRequiredLicenseInput"
-							disabled>
-								<option value="CLASS_A">Class A</option>
-								<option value="CLASS_B">Class B</option>
-								<option value="CLASS_C">Class C</option>
-								<option value="CLASS_D">Class D</option>
-						</select>
-						</label>
-					</fieldset>
-					<input type="reset" class="confirmButton placeCenter" value="Clear">
-				</form>
+				<h2 id = "contentstart">View Fleet</h2>
+				<p>These are the two main options for the View Fleet Use Case</p>
+				<ul class="nav nav-tabs">
+					<li class="active"><a data-toggle="tab" href="#ind">View one Vehicle</a></li>
+					<li><a data-toggle="tab" href="#all">View all Vehicles</a></li>
+				</ul>
+				<div class = "tab-content">
+					<div id="ind" class= "tab-pane fade in active">
+						<p>Form for selecting and viewing Vehicle Information</p>
+        				<form autocomplete="off" id="viewVehicleForm" onsubmit="return false">
+        					<fieldset class="databaseForms">
+        						<legend>Select Vehicle's ID</legend>
+        						<div class="autocomplete">
+        							<label for="editVehicleIDInput"> Vehicles ID <input type="text"
+        								name="editVehicleIDInput" id="editVehicleIDInput"
+        								onblur="selectVehicle()" placeholder="Vehicles ID">
+        							</label>
+        						</div>
+        					</fieldset>
+        					<fieldset class="databaseForms">
+        						<legend>Vehicle Information</legend>
+        						<label for="editDepartmentNameInput"> Department's Name <!-- Will be populated by Javascript -->
+									<select disabled id="editDepartmentNameInput"></select>
+								</label> <label for="editMakeInput"> Make <input type="text"
+        							name="editMakeInput" id="editMakeInput" placeholder="Make"
+        							readonly>
+        						</label> <label for="editModelInput"> Model <input type="text"
+        							name="editModelInput" id="editModelInput" placeholder="Model"
+        							readonly>
+        						</label> <label for="editYearInput"> Year <input type="number"
+        							name="editYearInput" id="editYearInput" placeholder="Year"
+        							readonly>
+        						</label> <label for="editVINInput"> Vehicles VIN <input
+        							type="text" name="editVINInput" id="editVINInput"
+        							placeholder="Vehicles VIN" readonly>
+        						</label> <label for="editMileageInput"> Mileage <input
+        							type="number" name="editMileageInput" id="editMileageInput"
+        							placeholder="Mileage" readonly>
+        						</label> <label for="editEngineInput"> Engine <input type="text"
+        							name="editEngineInput" id="editEngineInput" placeholder="Engine"
+        							readonly>
+        						</label> <label for="editTiresInput"> Tires <select
+        							id="editTiresInput" name="editTiresInput" disabled>
+        								<option value="11/32">11/32</option>
+        								<option value="10/32">10/32</option>
+        								<option value="9/32">9/32</option>
+        								<option value="8/32">8/32</option>
+        								<option value="7/32">7/32</option>
+        								<option value="6/32">6/32</option>
+        								<option value="5/32">5/32</option>
+        								<option value="4/32">4/32</option>
+        								<option value="3/32">3/32</option>
+        								<option value="2/32">2/32</option>
+        						</select>
+        						</label> <label for="editConditionInput"> Condition <select
+        							id="editConditionInput" name="editConditionInput" disabled>
+        								<option value="POOR">Poor</option>
+        								<option value="GOOD">Good</option>
+        								<option value="VERY GOOD">Very Good</option>
+        								<option value="EXCELLENT">Excellent</option>
+        						</select>
+        						</label> <label for="editRequiredLicenseInput"> Required License <select
+        							id="editRequiredLicenseInput" name="editRequiredLicenseInput"
+        							disabled>
+        								<option value="CLASS_A">Class A</option>
+        								<option value="CLASS_B">Class B</option>
+        								<option value="CLASS_C">Class C</option>
+        								<option value="CLASS_D">Class D</option>
+        						</select>
+        						</label>
+        					</fieldset>
+        					<input type="reset" class="confirmButton placeCenter" value="Clear">
+        				</form>
+					</div>
+					<div id = "all" class = "tab-pane fade">
+						<p>Form for selecting and viewing Fleet Information</p>
+						<form autocomplete = "off" onsubmit = "return false" id = "viewFleetForm">
+							<fieldset class = "databaseForms">
+								<legend>Select Department</legend>
+								<label for = "fleetDepartmentNameInput">
+									<select id = "fleetDepartmentNameInput">
+										<!-- Will be populated by Javascript -->
+									</select>
+								</label>
+							</fieldset>
+							<fieldset class = "databaseForms">
+								<table id = "fleetInfoTable">
+									<!-- Will be populated by Javascript -->
+								</table>
+							</fieldset>
+						</form>
+					</div>
+				</div>	
 			</article>
 		</div>
 		<div class="row">
