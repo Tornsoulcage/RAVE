@@ -1689,7 +1689,6 @@ function selectFleet(){
 					//The PHP call returns an array so we catch it here
 					//Then break set the appropriate form elements to their new values based on the array
 					//Array values are in the order they appear in the database
-					alert(xhr.responseText);
 					var jsonarray = JSON.parse(xhr.responseText);
 					
 					//If the result is null than it's an empty table
@@ -2686,7 +2685,7 @@ function selectAllDepartments(id){
 					
 						//Adding all of the information to the element
 						departments.innerHTML = string;
-						if(id = "fleetDepartmentNameInput"){
+						if(id == "fleetDepartmentNameInput"){
 							departments.innerHTML += "<option value = '*'>All Departments</option>";
 						}
 					}
