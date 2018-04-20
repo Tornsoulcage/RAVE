@@ -149,12 +149,14 @@
 							<fieldset class = "databaseForms">
 								<legend>Select Department</legend>
 								<label for = "fleetDepartmentNameInput">
-									<select id = "fleetDepartmentNameInput">
+									Department Name
+									<select id = "fleetDepartmentNameInput" onchange = "selectFleet()">
 										<!-- Will be populated by Javascript -->
 									</select>
 								</label>
 							</fieldset>
 							<fieldset class = "databaseForms">
+							<legend>Fleet Information</legend>
 								<table id = "fleetInfoTable">
 									<!-- Will be populated by Javascript -->
 								</table>

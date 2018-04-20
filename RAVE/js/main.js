@@ -107,9 +107,9 @@ document.addEventListener("click", function (e) {
 }
 
 //Sorts the vehicle alerts table
-function sortTable() {
+function sortTable(tableID, indexSort) {
 	  var table, rows, switching, i, x, y, shouldSwitch;
-	  table = document.getElementById("vehicleAlerts");
+	  table = document.getElementById(tableID);
 	  switching = true;
 	  /* Make a loop that will continue until
 	  no switching has been done: */
@@ -124,8 +124,8 @@ function sortTable() {
 	      shouldSwitch = false;
 	      /* Get the two elements you want to compare,
 	      one from current row and one from the next: */
-	      x = rows[i].getElementsByTagName("TD")[0];
-	      y = rows[i + 1].getElementsByTagName("TD")[0];
+	      x = rows[i].getElementsByTagName("TD")[indexSort];
+	      y = rows[i + 1].getElementsByTagName("TD")[indexSort];
 	      // Check if the two rows should switch place:
 	      if (x.innerHTML > y.innerHTML) {
 	        // I so, mark as a switch and break the loop:
@@ -316,6 +316,7 @@ function setUserRights(page){
 				}
 				if(page == 'viewmaintenance'){
 					autocompleteMaintenanceVehicleId("editVehicleIDInput");	
+					selectAllDepartments("editDepartmentNameInput");
 				}
 				if(page == 'viewschedule'){
 					setCurrentDate("scheduleDateInput");
@@ -630,7 +631,7 @@ function selectVehicleCheckupAlerts(string, overMileage){
 					element.classList.add("overMileage");
 				}
 				
-				sortTable();
+				sortTable("vehicleAlerts",0);
 
 			} else {
 				alert("There was a problem with the request.");
@@ -1615,6 +1616,7 @@ function selectVehicle(){
 	
 		//Opening the request
 		xhr.open("GET", "php/selectVehicle.php?q=" + vid, true);
+		
 	
 		//Set the function to call when the readystate changes
 		xhr.onreadystatechange = display_data;
@@ -1675,6 +1677,8 @@ function selectFleet(){
 	
 		//Opening the request
 		xhr.open("POST", "php/selectFleet.php", true);
+		xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+
 	
 		//Set the function to call when the readystate changes
 		xhr.onreadystatechange = display_data;
@@ -1689,13 +1693,28 @@ function selectFleet(){
 					
 					//If the result is null than it's an empty table
 					if(jsonarray[0] != null){
-						if(jsonarray.length == 1){
+						if(jsonarray[0].length == 1){
 							//If the array's length is one than it is an error string so we display
 							alert(xhr.responseText);
 						} else {	
 							var table = document.getElementById("fleetInfoTable");
-							var tableRow = "";
 							var string = "";
+							var tableRow = "<tr>" +
+										   "<th>Vehicle's ID</th>" +
+										   "<th>Department</th>" +
+										   "<th>Make</th>" +
+										   "<th>Model</th>" +
+										   "<th>Year</th>" +
+										   "<th>VIN</th>" +
+										   "<th>Mileage</th>" +
+										   "<th>Engine</th>" + 
+										   "<th>Tires</th>" +
+										   "<th>Condition</th>" +
+										   "<th>Required License</th>" +
+										   "</tr>";
+							string += tableRow;
+							
+							tableRow = "";
 							for(var i = 0; i < jsonarray.length; i++){
 								tableRow = "<tr>";
 								for(var j = 0; j < jsonarray[i].length; j++){
@@ -1706,6 +1725,7 @@ function selectFleet(){
 							}
 							
 							table.innerHTML = string;
+							sortTable("fleetInfoTable",1);
 						}	
 					} 
 				} else {
@@ -2666,7 +2686,7 @@ function selectAllDepartments(id){
 					
 						//Adding all of the information to the element
 						departments.innerHTML = string;
-						if(id = "fleetDepartmentNameInput"){
+						if(id == "fleetDepartmentNameInput"){
 							departments.innerHTML += "<option value = '*'>All Departments</option>";
 						}
 					}
