@@ -24,8 +24,11 @@ if ($id == '*') {
     
     // Sending the query and catching any errors
     if (! $conn->query($sql)) {
-        $error = $conn->error;
-        echo $error;
+    	$error = mysqli_errno($conn);
+    	if($error == 1452)
+    		echo "Incorrect vehicle ID";
+    		else
+    			echo $error;
     } else {
         $res = $conn->query($sql);
         

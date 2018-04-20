@@ -13,7 +13,7 @@ $sql = "INSERT INTO DEPARTMENT (DEPARTMENT_ID, DEPARTMENT_NAME)
 
 // Sending the query and catching any errors
 if (! $conn->query($sql)) {
-    $error = $conn->error;
+	$error = mysqli_errno($conn);
     echo $error;
     //push this
 } else {

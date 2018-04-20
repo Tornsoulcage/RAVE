@@ -17,8 +17,11 @@ $sql = "UPDATE checkup
 
 // Sending the query to the database and catching any errors to display
 if (! $conn->query($sql)) {
-    $error = $conn->error;
-    echo $error;
+	$error = mysqli_errno($conn);
+	if($error == 1452)
+		echo "Incorrect vehicle ID";
+		else
+			echo $error;
 } else {
     $sql = "UPDATE VEHICLE
             SET VEHICLE_MILEAGE = '$MILEAGE'

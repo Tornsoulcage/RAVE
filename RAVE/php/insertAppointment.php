@@ -17,7 +17,7 @@ $sql = "INSERT INTO schedule (VEHICLE_ID, MECHANIC_ID, SCHEDULE_DATE, SCHEDULE_T
 
 // Sending the query to the database and catching any errors to display
 if (! $conn->query($sql)) {
-    $error = $conn->error;
+    $error = mysqli_errno($conn);
     echo $error;
 } else {
     echo "Success";
