@@ -69,10 +69,8 @@
 		<div class="row">
 			<article>
 				<p>Help Information</p>
-				<p>
-					<a
-						href="http://www.trucking.org/itemcontent.aspx?uid=c1e041da-ae2b-4988-a144-aa450a24cf01"
-						target="_blank">Vehicle Maintenance Record Standards (VRMS)</a>
+				<p><a href="http://www.trucking.org/itemcontent.aspx?uid=c1e041da-ae2b-4988-a144-aa450a24cf01" target="_blank">Vehicle Maintenance Record Standards (VRMS)</a></p>
+				<p><a href = "https://dev.mysql.com/doc/refman/5.5/en/error-messages-server.html" target = "_blank">Error Codes</a>
 				</p>
 			</article>
 		</div>
@@ -81,8 +79,6 @@
 				<p>RAVE</p>
 				<p>Contact Info</p>
 				<p>RAVE@edenbay.com
-				
-				
 				<p>Town of Eden Bay, Eden Bay VA, 20103</p>
 				<p>123-456-7890</p>
 			</footer>

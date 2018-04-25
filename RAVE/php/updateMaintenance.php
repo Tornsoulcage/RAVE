@@ -31,9 +31,10 @@ $sql = "UPDATE MAINTENANCE
 // Sending the query to the database and catching any errors to display
 if (! $conn->query($sql)) {
     $error = mysqli_errno($conn);
-    echo $error;
-	echo "Test";
-} else {
+    if($error == 1452)
+        echo "Incorrect vehicle ID";
+    else
+        echo $error;} else {
     // Changing the mileage for the vehicle in question
     $sql = "UPDATE VEHICLE
                 SET VEHICLE_MILEAGE = '$MAINTENANCE_MILEAGE'
