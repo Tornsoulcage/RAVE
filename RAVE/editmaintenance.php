@@ -134,6 +134,10 @@
 										Special Work
 										<input type = "text" name = "addMaintenanceSpecialWorkInput" id = "addMaintenanceSpecialWorkInput" placeholder = "Work Performed">
 									</label>
+									<label for = "addMaintenanceMileageInput">
+										Mileage
+										<input type = "number" name = "addMaintenanceMileageInput" id = "addMaintenanceMileageInput" placeholder = "Vehicle Mileage">
+									</label>
 									<label for = "addMaintenancePartsCostInput">
 										Cost of Parts
 										<input type = "number" step = ".01" name = "addMaintenancePartsCostInput" id = "addMaintenancePartsCostInput" placeholder = "Cost of Parts">
@@ -220,6 +224,10 @@
 									<label for = "editMaintenanceSpecialWorkInput">
 										Comments
 										<input type = "text" name = "editMaintenanceSpecialWorkInput" id = "editMaintenanceSpecialWorkInput" placeholder = "Worked Performed">
+									</label>
+									<label for = "editMaintenanceMileageInput">
+										Mileage
+										<input type = "number" name = "editMaintenanceMileageInput" id = "editMaintenanceMileageInput" placeholder = "Vehicle Mileage">
 									</label>
 									<label for = "editMaintenancePartsCostInput">
 										Cost of Parts
