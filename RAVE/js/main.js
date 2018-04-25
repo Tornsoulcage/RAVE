@@ -2554,7 +2554,7 @@ function selectMaintenanceTableClass(licenseClass, start, end){
 								for(var j = 0; j < jsonarray[0].length; j++){
 									if(j == 2){
 										tableRow += "<td>" + jsonarray[i][11] + " " + jsonarray[i][12] + "</td>";
-									} else if( j < 9){
+									} else if( j < 10){
 										tableRow += "<td>" + jsonarray[i][j] + "</td>";
 									}
 								}

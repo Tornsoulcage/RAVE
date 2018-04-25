@@ -238,12 +238,13 @@
 								onclick="selectMaintenanceReport()" value="Confirm">
 							<fieldset class="databaseForms">
 								<legend>Report Info</legend>
+								<label for="maintenancePartsCost"> Parts Cost <input
+									type="number" name="maintenancePartsCost"
+									id="maintenancePartsCost" placeholder="Parts Cost" readonly>
+								</label>
 								<label for="maintenanceLaborCost"> Labor Cost <input
 									type="number" name="maintenanceLaborCost"
 									id="maintenanceLaborCost" placeholder="Labor Cost" readonly>
-								</label> <label for="maintenancePartsCost"> Parts Cost <input
-									type="number" name="maintenancePartsCost"
-									id="maintenancePartsCost" placeholder="Parts Cost" readonly>
 								</label>
 							</fieldset>
 							<fieldset class="databaseForms">
