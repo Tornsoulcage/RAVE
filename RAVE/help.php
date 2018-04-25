@@ -74,10 +74,6 @@
 						href="http://www.trucking.org/itemcontent.aspx?uid=c1e041da-ae2b-4988-a144-aa450a24cf01"
 						target="_blank">Vehicle Maintenance Record Standards (VRMS)</a>
 				</p>
-				<p>
-					<a href="http://www.flamegernade.wixsite.com/fishing"
-						target="_blank">Nate's Website Buy My Stuff</a>
-				</p>
 			</article>
 		</div>
 		<div class="row">
