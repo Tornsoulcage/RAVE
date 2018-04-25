@@ -337,11 +337,11 @@ function setUserRights(page){
 //Sends a XMLHttp request to the server to generate the department report
 function selectDepartmentReport(){
 	//Gathering the variables we will need from the page
-	var dName = document.getElementById("departmentNameInput").value;
+	var did = document.getElementById("departmentNameInput").value;
 	var startDate = document.getElementById("departmentStartDate").value;
 	var endDate = document.getElementById("departmentEndDate").value;
 	
-	var datastring = 'dName=' + dName + '&sDate=' + startDate + '&eDate=' + endDate;
+	var datastring = 'did=' + did + '&sDate=' + startDate + '&eDate=' + endDate;
 	
 	//Starting the xmlhttp request
 	var xhr;
