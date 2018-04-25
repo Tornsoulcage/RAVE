@@ -22,7 +22,9 @@ $sql = "INSERT INTO vehicle (VEHICLE_ID, DEPARTMENT_ID, VEHICLE_MAKE, VEHICLE_MO
 
 // Sending the query and catching any errors
 if (! $conn->query($sql)) {
-    $error = $conn->error;
+	$error = mysqli_errno($conn);
+	if($error == 1062)
+		echo "Can't have duplicate Vehicle ID";
     echo $error;
 } else {
     // Once we have inserted a vehicle we insert a default checkup with its information
