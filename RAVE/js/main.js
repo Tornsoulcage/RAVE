@@ -364,7 +364,7 @@ function selectDepartmentReport(){
 				} else {
 					//Setting all of the reports elements to the results of the query
 					document.getElementById("departmentTotalMileage").value = jsonarray[0];
-					document.getElementById("departmentTotalGasCost").value = jsonarray[1];
+					document.getElementById("departmentTotalGasCost").value = jsonarray[1].toFixed(2);
 					document.getElementById("departmentTotalMaintenanceCost").value = jsonarray[2];
 					document.getElementById("departmentTotalMaintenanceRequests").value = jsonarray[3];
 					document.getElementById("departmentTotalVehicles").value = jsonarray[4];
@@ -411,7 +411,7 @@ function selectVehicleReport(){
 				} else {
 					//Setting our report fields to the values in the array
 					document.getElementById("vehicleTotalMileage").value = jsonarray[0];
-					document.getElementById("vehicleTotalGasCost").value = jsonarray[1];
+					document.getElementById("vehicleTotalGasCost").value = jsonarray[1].toFixed(2);
 					document.getElementById("vehicleTotalMaintenanceCost").value = jsonarray[2];
 					
 					//Creating our maintenance table
