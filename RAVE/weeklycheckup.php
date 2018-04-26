@@ -91,11 +91,10 @@
 							</fieldset>
 							<fieldset class="databaseForms">
 								<legend>Vehicle's Information</legend>
-								<label for="addDepartmentNameInput"> Department's Name <input
-									type="text" name="addDepartmentNameInput"
-									id="addDepartmentNameInput" placeholder="Department's Name"
-									readonly>
-								</label> <label for="addMakeInput"> Make <input type="text"
+								<label for="addDepartmentNameInput"> Department's Name <!-- Will be populated by Javascript -->
+									<select disabled id="addDepartmentNameInput"></select>
+								</label>
+								<label for="addMakeInput"> Make <input type="text"
 									name="addMakeInput" id="addMakeInput" placeholder="Make"
 									readonly>
 								</label> <label for="addModelInput"> Model <input type="text"
@@ -153,11 +152,10 @@
 							</fieldset>
 							<fieldset class="databaseForms">
 								<legend>Vehicle Information</legend>
-								<label for="editDepartmentNameInput"> Department's Name <input
-									type="text" name="editDepartmentNameInput"
-									id="editDepartmentNameInput" placeholder="Department's Name"
-									readonly>
-								</label> <label for="editMakeInput"> Make <input type="text"
+								<label for="editDepartmentNameInput"> Department's Name <!-- Will be populated by Javascript -->
+									<select disabled id="editDepartmentNameInput"></select>
+								</label>
+								<label for="editMakeInput"> Make <input type="text"
 									name="editMakeInput" id="editMakeInput" placeholder="Make"
 									readonly>
 								</label> <label for="editModelInput"> Model <input type="text"

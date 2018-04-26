@@ -323,6 +323,8 @@ function setUserRights(page){
 				}
 				if(page == 'weeklycheckup'){
 					autocompleteVehicleId("vehicle");
+					selectAllDepartments("addDepartmentNameInput");
+					selectAllDepartments("editDepartmentNameInput");
 				}
 			} else {
 				alert("There was a problem with the request.");
