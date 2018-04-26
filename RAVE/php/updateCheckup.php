@@ -10,27 +10,43 @@ $MILEAGE = $_POST["mileage"];
 $GAS_PRICE = $_POST["gas"];
 $COMMENTS = $_POST["comments"];
 
-// Putting all the information into a long string for the query
-$sql = "UPDATE checkup
-    			SET MILEAGE = '$MILEAGE', GAS_PRICE = '$GAS_PRICE', COMMENTS = '$COMMENTS'
-    			WHERE VEHICLE_ID = '$VEHICLE_ID' AND DATE = '$DATE'";
+//First we have to check if the user is entering a larger amount for the vehicle's mileage
+$sql = "SELECT VEHICLE_MILEAGE FROM VEHICLE WHERE VEHICLE_ID = '$VEHICLE_ID'";
 
-// Sending the query to the database and catching any errors to display
-if (! $conn->query($sql)) {
-	$error = mysqli_errno($conn);
-	if($error == 1452)
-		echo "Incorrect vehicle ID";
-		else
-			echo $error;
+if(!$conn->query($sql)){
+    $error = mysqli_error($conn);
+    echo $error;
 } else {
-    $sql = "UPDATE VEHICLE
-            SET VEHICLE_MILEAGE = '$MILEAGE'
-            WHERE VEHICLE_ID = '$VEHICLE_ID'";
-    if(!$conn -> query($sql)){
-        $error = $conn->error;
-        echo $error;
+    $res = $conn -> query($sql);
+    $row = mysqli_fetch_array($res);
+    
+    //If the amount is smaller than what we have than we echo a message and end
+    if($row[0] > $MILEAGE){
+        echo "Mileage cannot be lower than the previous value";
     } else {
-        echo "Success";
+        // Putting all the information into a long string for the query
+        $sql = "UPDATE checkup
+            			SET MILEAGE = '$MILEAGE', GAS_PRICE = '$GAS_PRICE', COMMENTS = '$COMMENTS'
+            			WHERE VEHICLE_ID = '$VEHICLE_ID' AND DATE = '$DATE'";
+        
+        // Sending the query to the database and catching any errors to display
+        if (! $conn->query($sql)) {
+        	$error = mysqli_errno($conn);
+        	if($error == 1452)
+        		echo "Incorrect vehicle ID";
+        		else
+        			echo $error;
+        } else {
+            $sql = "UPDATE VEHICLE
+                    SET VEHICLE_MILEAGE = '$MILEAGE'
+                    WHERE VEHICLE_ID = '$VEHICLE_ID'";
+            if(!$conn -> query($sql)){
+                $error = $conn->error;
+                echo $error;
+            } else {
+                echo "Success";
+            }
+        }
     }
 }
 
