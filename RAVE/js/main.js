@@ -613,7 +613,7 @@ function selectVehicleCheckupAlerts(string, overMileage){
 							}
 							
 							//Once we finish the vehicle we add a description cell and end the row
-							tableRow += "<td>NEEDS A WEEKLY CHECKUP</td>";
+							tableRow += "<td>NEEDS A WEEKLY CHECK-IN</td>";
 							tableRow += "</tr>";
 							
 							//Tack this row onto the string for the table
@@ -2386,7 +2386,7 @@ function selectMaintenanceTable(vehicleID){
 									"<th>Date</th>" +
 									"<th>Appointment Type</th>" +
 									"<th>Special Work</th>" +
-									"<th>Parts Cost</th>" +
+									"<th>Parts Costs</th>" +
 									"<th>Labor Costs</th></tr>";
 							
 							var tableRow = "";
@@ -2465,7 +2465,7 @@ function selectMaintenanceTableRange(vehicleID, start, end){
 									"<th>Date</th>" +
 									"<th>Appointment Type</th>" +
 									"<th>Special Work</th>" +
-									"<th>Parts Cost</th>" +
+									"<th>Parts Costs</th>" +
 									"<th>Labor Costs</th></tr>";
 							
 							var tableRow = "";
@@ -2545,7 +2545,7 @@ function selectMaintenanceTableClass(licenseClass, start, end){
 									"<th>Date</th>" +
 									"<th>Appointment Type</th>" +
 									"<th>Special Work</th>" +
-									"<th>Parts Cost</th>" +
+									"<th>Parts Costs</th>" +
 									"<th>Labor Costs</th></tr>";
 							
 							var tableRow = "";

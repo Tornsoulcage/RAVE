@@ -82,14 +82,14 @@
         					<fieldset class="databaseForms">
         						<legend>Select Vehicle's ID</legend>
         						<div class="autocomplete">
-        							<label for="editVehicleIDInput"> Vehicles ID <input type="text"
+        							<label for="editVehicleIDInput"> Vehicle's ID <input type="text"
         								name="editVehicleIDInput" id="editVehicleIDInput"
-        								onblur="selectVehicle()" placeholder="Vehicles ID">
+        								onblur="selectVehicle()" placeholder="Vehicle's ID">
         							</label>
         						</div>
         					</fieldset>
         					<fieldset class="databaseForms">
-        						<legend>Vehicle Information</legend>
+        						<legend>Vehicle's Information</legend>
         						<label for="editDepartmentNameInput"> Department's Name <!-- Will be populated by Javascript -->
 									<select disabled id="editDepartmentNameInput"></select>
 								</label> <label for="editMakeInput"> Make <input type="text"
@@ -101,9 +101,9 @@
         						</label> <label for="editYearInput"> Year <input type="number"
         							name="editYearInput" id="editYearInput" placeholder="Year"
         							readonly>
-        						</label> <label for="editVINInput"> Vehicles VIN <input
+        						</label> <label for="editVINInput"> Vehicle's VIN <input
         							type="text" name="editVINInput" id="editVINInput"
-        							placeholder="Vehicles VIN" readonly>
+        							placeholder="Vehicle's VIN" readonly>
         						</label> <label for="editMileageInput"> Mileage <input
         							type="number" name="editMileageInput" id="editMileageInput"
         							placeholder="Mileage" readonly>

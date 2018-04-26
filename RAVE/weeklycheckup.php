@@ -69,28 +69,28 @@
 		</div>
 		<div class="row">
 			<article class="adminRights">
-				<h2 id="contentstart">Weekly Checkups</h2>
-				<p>These are the three main options for the Weekly Checkup Use Case</p>
+				<h2 id="contentstart">Weekly Check-Ins</h2>
+				<p>These are the three main options for the Weekly Check-In Use Case</p>
 				<ul class="nav nav-tabs">
-					<li class="active"><a data-toggle="tab" href="#add">Add a Checkup</a></li>
-					<li><a data-toggle="tab" href="#edit">Edit an Existing Checkup</a></li>
-					<li><a data-toggle="tab" href="#remove">Remove a Checkup</a></li>
+					<li class="active"><a data-toggle="tab" href="#add">Add a Check-In</a></li>
+					<li><a data-toggle="tab" href="#edit">Edit an Existing Check-In</a></li>
+					<li><a data-toggle="tab" href="#remove">Remove a Check-In</a></li>
 				</ul>
 				<div class="tab-content">
 					<div id="add" class="tab-pane fade in active">
 						<form autocomplete="off" id="addCheckupForm"
 							onsubmit="return false">
 							<fieldset class="databaseForms">
-								<legend>Weekly Checkup</legend>
+								<legend>Weekly Check-In</legend>
 								<div class="autocomplete">
-									<label for="addVehicleIDInput"> Vehicles ID <input type="text"
+									<label for="addVehicleIDInput"> Vehicle's ID <input type="text"
 										name="addVehicleIDInput" id="addVehicleIDInput"
-										onblur="selectPartialVehicle('add')" placeholder="Vehicles ID">
+										onblur="selectPartialVehicle('add')" placeholder="Vehicle's ID">
 									</label>
 								</div>
 							</fieldset>
 							<fieldset class="databaseForms">
-								<legend>Vehicle Information</legend>
+								<legend>Vehicle's Information</legend>
 								<label for="addDepartmentNameInput"> Department's Name <input
 									type="text" name="addDepartmentNameInput"
 									id="addDepartmentNameInput" placeholder="Department's Name"
@@ -104,13 +104,13 @@
 								</label> <label for="addYearInput"> Year <input type="number"
 									name="addYearInput" id="addYearInput" placeholder="Year"
 									readonly>
-								</label> <label for="addVINInput"> Vehicles VIN <input
+								</label> <label for="addVINInput"> Vehicle's VIN <input
 									type="text" name="addVINInput" id="addVINInput"
-									placeholder="Vehicles VIN" readonly>
+									placeholder="Vehicle's VIN" readonly>
 								</label>
 							</fieldset>
 							<fieldset class="databaseForms">
-								<legend>Weekly Checkup</legend>
+								<legend>Weekly Check-In</legend>
 								<label for="addCurrentMileageInput"> Mileage <input
 									type="number" name="addCurrentMileageInput"
 									id="addCurrentMileageInput" placeholder="Current Mileage">
@@ -137,7 +137,7 @@
 						<form autocomplete="off" id="editCheckupForm"
 							onsubmit="return false">
 							<fieldset class="databaseForms">
-								<legend>Select Vehicle's ID and Checkup to Edit</legend>
+								<legend>Select Vehicle's ID and Check-In to Edit</legend>
 								<div class="autocomplete">
 									<label for="editVehicleIDInput"> Vehicle's ID <input
 										type="text" name="editVehicleIDInput" id="editVehicleIDInput"
@@ -145,7 +145,7 @@
 										placeholder="Vehicle's ID">
 									</label>
 								</div>
-								<label for="editCheckupInput"> Select Checkup <select
+								<label for="editCheckupInput"> Select Check-In <select
 									id="editCheckupInput" onblur="selectCheckupDropDown()">
 										<!-- Will be filled by javascript -->
 								</select>
@@ -166,13 +166,13 @@
 								</label> <label for="editYearInput"> Year <input type="number"
 									name="editYearInput" id="editYearInput" placeholder="Year"
 									readonly>
-								</label> <label for="editVINInput"> Vehicles VIN <input
+								</label> <label for="editVINInput"> Vehicle's VIN <input
 									type="text" name="editVINInput" id="editVINInput"
-									placeholder="Vehicles VIN" readonly>
+									placeholder="Vehicle's VIN" readonly>
 								</label>
 							</fieldset>
 							<fieldset class="databaseForms">
-								<legend>Weekly Checkup</legend>
+								<legend>Weekly Check-In</legend>
 								<label for="editCurrentMileageInput"> Mileage <input
 									type="number" name="editCurrentMileageInput"
 									id="editCurrentMileageInput" placeholder="Current Mileage">
@@ -208,7 +208,7 @@
 										placeholder="Vehicle's ID">
 									</label>
 								</div>
-								<label for="removeCheckupInput"> Select Checkup <select
+								<label for="removeCheckupInput"> Select Check-In <select
 									id="removeCheckupInput">
 										<!-- Will be filled by javascript -->
 								</select>

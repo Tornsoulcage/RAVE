@@ -69,8 +69,8 @@
 		<div class="row">
 			<article class="adminRights">
 				<h2 id="contentstart">Administrative Tasks</h2>
-				<p>These are various options for the clerk to perform administrative
-					tasks</p>
+				<p>These are various options for the Clerk to perform Administrative
+					Tasks</p>
 				<ul class="nav nav-tabs">
 					<li class="active"><a data-toggle="tab" href="#user">User Tasks</a></li>
 					<li><a data-toggle="tab" href="#department">Department Tasks</a></li>

@@ -81,7 +81,7 @@
 									</div>
 								</fieldset>
 								<fieldset class = "databaseForms">
-									<legend>Vehicle Information</legend>
+									<legend>Vehicle's Information</legend>
 									<label for="addDepartmentNameInput"> Department's Name <!-- Will be populated by Javascript -->
 										<select disabled id="addDepartmentNameInput"></select>
 									</label>
@@ -162,8 +162,8 @@
 									<legend>Select Vehicle ID and Date to Edit</legend>
 									<div class = "autocomplete">
 										<label for = "editVehicleIDInput" >
-											Vehicles ID
-											<input type = "text" id = "editVehicleIDInput" name = "editVehicleIDInput" onblur = "selectPartialVehicle('edit'), selectMaintenance('editDateInput', 'editVehicleIDInput')" placeholder = "Vehicles ID">
+											Vehicle's ID
+											<input type = "text" id = "editVehicleIDInput" name = "editVehicleIDInput" onblur = "selectPartialVehicle('edit'), selectMaintenance('editDateInput', 'editVehicleIDInput')" placeholder = "Vehicle's ID">
 										</label>
 									</div>
 									<label for = "editDateInput">
@@ -190,7 +190,7 @@
 										<input type = "number" name = "editYearInput" id = "editYearInput" placeholder = "Year" readonly>
 									</label>									
 									<label for = "editVINInput">
-										Vehicles VIN
+										Vehicle's VIN
 										<input type = "text" name = "editVINInput" id = "editVINInput" placeholder = "Vehicles VIN" readonly>
 									</label>
 								</fieldset>
@@ -223,7 +223,7 @@
 									</label>
 									<label for = "editMaintenanceSpecialWorkInput">
 										Comments
-										<input type = "text" name = "editMaintenanceSpecialWorkInput" id = "editMaintenanceSpecialWorkInput" placeholder = "Worked Performed">
+										<input type = "text" name = "editMaintenanceSpecialWorkInput" id = "editMaintenanceSpecialWorkInput" placeholder = "Work Performed">
 									</label>
 									<label for = "editMaintenanceMileageInput">
 										Mileage
@@ -234,7 +234,7 @@
 										<input type = "number" name = "editMaintenancePartsCostInput" id = "editMaintenancePartsCostInput" placeholder = "Cost of Parts">
 									</label>
 									<label for ="editMaintenanceLaborCostInput">
-										Labor Cost
+										Cost of Labor
 										<input type = "number" name = "editMaintenanceLaborCostInput" id = "editMaintenanceLaborCostInput" placeholder = "Cost of Labor">
 									</label>
 								</fieldset>

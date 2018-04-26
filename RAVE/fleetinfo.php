@@ -77,7 +77,7 @@
 					<a href="viewfleet.php">View Fleet</a>
 				</p>
 				<p class="adminRights">
-					<a href="weeklyCheckup.php">Weekly Checkup</a>
+					<a href="weeklyCheckup.php">Weekly Check-In</a>
 				</p>
 			</article>
 		</div>

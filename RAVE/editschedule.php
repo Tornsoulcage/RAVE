@@ -71,10 +71,10 @@
 				<h2 id="contentstart">Edit Schedule</h2>
 				<p>These are the three main options for the Edit Schedule Use Case</p>
 				<ul class="nav nav-tabs">
-					<li class="active"><a data-toggle="tab" href="#add">Add a
+					<li class="active"><a data-toggle="tab" href="#add">Add an
 							Appointment</a></li>
 					<li><a data-toggle="tab" href="#edit">Edit an Existing Appointment</a></li>
-					<li><a data-toggle="tab" href="#remove">Remove a Appointment</a></li>
+					<li><a data-toggle="tab" href="#remove">Remove an Appointment</a></li>
 				</ul>
 				<div class="tab-content">
 					<div id="add" class="tab-pane fade in active">
@@ -90,7 +90,7 @@
 								<div class="autocomplete">
 									<label for="addVehicleIDInput"> Vehicle's ID <input type="text"
 										name="addVehicleIDInput" id="addVehicleIDInput"
-										placeholder="Vehicle ID">
+										placeholder="Vehicle's ID">
 									</label>
 								</div>
 								<label for="addMechanicNameInput"> Mechanic Assigned <select
@@ -103,7 +103,7 @@
 								</label> <label for="addScheduleTimeRequired"> Time Required <input
 									type="number" name="addScheduleTimeRequired"
 									id="addScheduleTimeRequired" step=15
-									placeholder="15 minute increments">
+									placeholder="15 Minute Increments">
 								</label> <label for="addScheduleDescription"> Description <input
 									type="text" name="addScheduleDescription"
 									id="addScheduleDescription" placeholder="REBUILD ENGINE">
@@ -126,10 +126,10 @@
 							<fieldset class="databaseForms">
 								<legend>Select Vehicle ID and Date to Edit</legend>
 								<div class="autocomplete">
-									<label for="editVehicleIDInput"> Vehicles ID <input type="text"
+									<label for="editVehicleIDInput"> Vehicle's ID <input type="text"
 										name="editVehicleIDInput" id="editVehicleIDInput"
 										onblur="selectAppointment('editVehicleIDInput', 'scheduleDateInput')"
-										placeholder="Vehicles ID">
+										placeholder="Vehicle's ID">
 									</label>
 								</div>
 								<label for="scheduleDateInput"> Date to Edit <!-- Will be populated by Javascript -->
@@ -175,11 +175,11 @@
 							<fieldset class="databaseForms">
 								<legend>Select Vehicle ID and Date to Remove</legend>
 								<div class="autocomplete">
-									<label for="removeVehicleIDInput"> Vehicles ID <input
+									<label for="removeVehicleIDInput"> Vehicle's ID <input
 										type="text" name="removeVehicleIDInput"
 										id="removeVehicleIDInput"
 										onblur="selectAppointment('removeVehicleIDInput', 'removeScheduleDateInput')"
-										placeholder="Vehicles ID">
+										placeholder="Vehicle's ID">
 									</label>
 								</div>
 								<label for="removeScheduleDateInput"> Date for Schedule <select
