@@ -73,7 +73,7 @@
 				<p>These are the three main options for the Weekly Check-In Use Case</p>
 				<ul class="nav nav-tabs">
 					<li class="active"><a data-toggle="tab" href="#add">Add a Check-In</a></li>
-					<li><a data-toggle="tab" href="#edit">Edit an Existing Check-In</a></li>
+					<li><a data-toggle="tab" href="#edit">Edit a Existing Check-In</a></li>
 					<li><a data-toggle="tab" href="#remove">Remove a Check-In</a></li>
 				</ul>
 				<div class="tab-content">

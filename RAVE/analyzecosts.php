@@ -72,7 +72,7 @@
 		<div class="row">
 			<article class="genRights">
 				<h2 id="contentstart">Analyze Costs</h2>
-				<p>These are the main two reports</p>
+				<p>These are the main three reports</p>
 				<ul class="nav nav-tabs">
 					<li class="active"><a data-toggle="tab" href="#vehicle">Vehicle
 							Reports</a></li>
