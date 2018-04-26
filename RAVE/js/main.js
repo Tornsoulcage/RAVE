@@ -1751,7 +1751,6 @@ function insertCheckup(){
 	array.push(vid);
 	array.push(mileage);
 	array.push(gas);
-	array.push(com);
 	
 	//If the Validation returns true we continue
 	if(validateForm(array)){
@@ -1908,7 +1907,6 @@ function updateCheckup(){
 	array.push(cid);
 	array.push(mileage);
 	array.push(gas);
-	array.push(comments);
 	
 	//If the Validation returns true we continue
 	if(validateForm(array)){

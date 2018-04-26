@@ -21,7 +21,7 @@ if(!$conn->query($sql)){
     $row = mysqli_fetch_array($res);
     
     //If the amount is smaller than what we have than we echo a message and end
-    if($row[0] > $MILEAGE){
+    if($row[0] >= $MILEAGE){
         echo "Mileage cannot be lower than the previous value";
     } else {
         // Putting it all in into one long string for the query
@@ -31,10 +31,13 @@ if(!$conn->query($sql)){
         // Sending the query to the database and catching any errors to display
         if (! $conn->query($sql)) {
         	$error = mysqli_errno($conn);
-        	if($error == 1452)
+        	if($error == 1452){
         		echo "Incorrect vehicle ID";
-        		else
-        			echo $error;
+        	} else if($error == 1062){
+        		echo "Check-in already exists for this date.";    
+        	} else {
+        		echo $error;
+        	}
         } else {
             // Changing the mileage for the vehicle in question
             $sql = "UPDATE VEHICLE

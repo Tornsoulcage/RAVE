@@ -31,11 +31,14 @@ if(!$conn->query($sql)){
         
         // Sending the query to the database and catching any errors to display
         if (! $conn->query($sql)) {
-        	$error = mysqli_errno($conn);
-        	if($error == 1452)
-        		echo "Incorrect vehicle ID";
-        		else
-        			echo $error;
+            $error = mysqli_errno($conn);
+            if($error == 1452){
+                echo "Incorrect vehicle ID";
+            } else if($error == 1062){
+                echo "Check-in already exists for this date.";
+            } else {
+                echo $error;
+            }
         } else {
             $sql = "UPDATE VEHICLE
                     SET VEHICLE_MILEAGE = '$MILEAGE'
