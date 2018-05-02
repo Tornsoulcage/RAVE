@@ -25,11 +25,11 @@ if (! $conn->query($sql)) {
         $RECC_DESC = $rec_table[$x][1];
         
         //Upper and Lower limits for the alerts
-        $upper = 1.05 * $RECC_MILEAGE;
-        $lower = .95 * $RECC_MILEAGE;
+        $upper = .05 * $RECC_MILEAGE;
+        $lower = -.05 * $RECC_MILEAGE;
         
         // Query to select all vehicles whose mileage falls within these bounds
-        $sql = "SELECT * FROM `VEHICLE` WHERE MOD(VEHICLE_MILEAGE,'$RECC_MILEAGE') <= $upper AND MOD(VEHICLE_MILEAGE, '$RECC_MILEAGE') >= $lower OR VEHICLE_MILEAGE = '$RECC_MILEAGE'";
+        $sql = "SELECT * FROM `VEHICLE` WHERE MOD(VEHICLE_MILEAGE,'$RECC_MILEAGE') <= $upper OR MOD(VEHICLE_MILEAGE, '$RECC_MILEAGE') - '$RECC_MILEAGE' >= $lower";
         
         // Sending the query and catching any errors
         if (! $conn->query($sql)) {
@@ -70,11 +70,15 @@ if (! $conn->query($sql)) {
                             $main_res = mysqli_fetch_array($res);
                             $MAIN_MILEAGE = $main_res[0];
                             
+                            //Finding how far away from our recc_mileage the most recent maintenance appointment was
+                            $MAIN_MOD = $MAIN_MILEAGE % $RECC_MILEAGE;
+                            
                             // If the record mileage is in the range then we assume that the reccommended maintenance was done
                             // So if the mileage is not in our range we push the vehicle into our content table
-                            if (!($MAIN_MILEAGE <= $upper && $MAIN_MILEAGE >= $lower)) {
+                            if (!($MAIN_MOD <= $upper || ($MAIN_MOD - $RECC_MILEAGE) >= $lower)) {
                                 // If the vehicle's mileage is above the target mileage than we flag it to be restyled
-                                if ($CURRENT_MILEAGE >= $RECC_MILEAGE) {
+                                $VEHICLE_MOD = $CURRENT_MILEAGE % $RECC_MILEAGE;
+                                if ($VEHICLE_MOD <= $upper) {
                                     array_push($vehicle, $res_table[$j], $RECC_DESC, true);
                                     array_push($content, $vehicle);
                                 } else {
