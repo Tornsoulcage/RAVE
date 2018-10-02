@@ -5,7 +5,6 @@ $conn = openConn();
 
 // Gathering the variables needed from the form
 $LICENSE_CLASS = $_POST["licenseClass"];
-$MAINTENANCE_REPAIR_ID = $_POST["mid"];
 $START_DATE = $_POST["sDate"];
 $END_DATE = $_POST["eDate"];
 
